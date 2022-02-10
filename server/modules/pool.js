@@ -1,4 +1,5 @@
 const pg = require('pg');
+const Pool = pg.Pool;
 
 const config = {
     database: 'koalas',
@@ -8,7 +9,7 @@ const config = {
     idleTimeoutMillis: 30000
 };
 
-const pool = new pg.Pool(config);
+const pool = new Pool(config);
 
 pool.on("connect", () => {
     console.log('connected to postgreSQL');
