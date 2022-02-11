@@ -22,11 +22,13 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req,res)=>{
     console.log('req.body', req.body);
-    let koala = req.body
+    let koala = req.body;
     
+    let koalaReadyToTransfer = koala.ready_to_transfer;
+
     let queryText = `INSERT INTO "koalas" ("name","gender","age","ready_to_transfer","notes")
-    VALUES ($1,$2,$3,$4,$5);`;
-    pool.query(queryText, [koala.name, koala.gender, koala.age, koala.ready_to_transfer,koala.notes])
+        VALUES ($1,$2,$3,$4,$5);`;
+    pool.query(queryText, [koala.name, koala.gender, koala.age, koalaReadyToTransfer,koala.notes])
     .then(result=>{
         res.sendStatus(201);
     }).catch(error=>{
