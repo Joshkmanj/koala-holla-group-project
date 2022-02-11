@@ -70,7 +70,7 @@ function handleSubmit(){
     name: $('#nameIn').val(),
     age: $('#ageIn').val(),
     gender: gender,
-    transfer: readyForTransfer,
+    ready_to_transfer: readyForTransfer,
     notes: $('#notesIn').val()
   }
   
